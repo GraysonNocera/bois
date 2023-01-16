@@ -35,8 +35,6 @@ def main():
     
     # Get all possible pairs (combination formula) of bois (15 choose 2)
     all_pairs = find_all_possible_pairs()
-    all_pairs_again = deepcopy(all_pairs)
-    random.shuffle(all_pairs_again)
 
     # Iterate through weeks
     for i in range(14):
@@ -45,17 +43,11 @@ def main():
         # Fill the week
         week = fill_week(all_pairs)
 
-        # If None is returned for the week, tried the copy of all pairs dataset
-        if not (week):
-            weeks.append(fill_week(all_pairs_again))
-        else:
-            weeks.append(week)
-
-    # Debugging
-    print(len(bois))
-    print(all_pairs)
-    print(len(all_pairs))
-    print(10 * 21)
+        # # If None is returned for the week, tried the copy of all pairs dataset
+        # if not (week):
+        #     weeks.append(fill_week(all_pairs_again))
+        # else:
+        #     weeks.append(week)
 
     # Print the weeks
     print(weeks)
@@ -88,29 +80,29 @@ def fill_week(all_pairs: list) -> list:
     """
 
     this_week = []
-    start = time.time()
-    while not week_is_full_minus_odd(this_week):
+    # while not week_is_full_minus_odd(this_week):
+    #     pair = random.choice(all_pairs)
+    #     boi1, boi2 = pair
+    #     while boi_in_week(this_week, boi1) or boi_in_week(this_week, boi2):
+    #         pair = random.choice(all_pairs)
+    #         boi1, boi2 = pair
+    #     this_week.append(pair)
+    #     all_pairs.remove(pair)
+
+    # boi = boi_not_in_week(this_week)
+    # this_week[int(random.random() * len(this_week))].add(boi)
+
+    # random.shuffle(little_bois)
+    # j = 0
+    # for i in range(len(this_week)):
+    #     if len(this_week[i]) < 3:
+    #         this_week[i].add(little_bois[j])
+    #         j += 1
+
+    while len(this_week) != 6:
         pair = random.choice(all_pairs)
-        boi1, boi2 = pair
-        while boi_in_week(this_week, boi1) or boi_in_week(this_week, boi2):
-            pair = random.choice(all_pairs)
-            boi1, boi2 = pair
-            if (time.time() - start > 2):
-                return None
-        this_week.append(pair)
-        all_pairs.remove(pair)
-        if (time.time() - start > 2):
-            return None
-
-    boi = boi_not_in_week(this_week)
-    this_week[int(random.random() * len(this_week))].add(boi)
-
-    random.shuffle(little_bois)
-    j = 0
-    for i in range(len(this_week)):
-        if len(this_week[i]) < 3:
-            this_week[i].add(little_bois[j])
-            j += 1
+        table = [boi_in_week(x) for x in pair]
+        
     
     return this_week
     
@@ -204,27 +196,48 @@ def hardcode_remove(all_pairs: list):
     all_pairs.remove({"Parker", "Jared"})
     all_pairs.remove({"Dutch", "Chuck"})
 
+def one_little_two_big(temp_set: set):
+    """
+    Ensure that a possible pairing has two J bois and one pre j
+    """
+    temp_list = list(temp_set)
+
+    bois_count = 0
+    little_bois_count = 0
+    for boi in temp_list:
+        if boi in bois:
+            bois_count += 1
+        elif boi in little_bois:
+            little_bois_count += 1
+    
+    return bois_count == 2 and little_bois_count == 1
+
 def find_all_possible_pairs() -> list:
     """
     Get all possible pairs of bois
     :return: list of all possible pairs
     """
+    master_bois = bois + little_bois
 
     all_pairs = set()
     temp_set = set()
-    for i in range(len(bois)):
-        for j in range(i, len(bois)):
-            temp_set = {bois[i], bois[j]}
-            if len(temp_set) != 2:
-                continue
-            all_pairs.add(frozenset(temp_set))
+    for i in range(len(master_bois)):
+        for j in range(i, len(master_bois)):
+            for k in range(j, len(master_bois)):
+                temp_set = {master_bois[i], master_bois[j], master_bois[k]}
+                if len(temp_set) != 3:
+                    continue
+                elif not one_little_two_big(temp_set):
+                    continue
+                all_pairs.add(frozenset(temp_set))
 
     all_pairs = list(all_pairs)
     for i in range(len(all_pairs)):
         all_pairs[i] = set(all_pairs[i])
     
     print(all_pairs)
-    hardcode_remove(all_pairs)
+    # hardcode_remove(all_pairs)
+    print(len(all_pairs))
 
     return all_pairs
 
