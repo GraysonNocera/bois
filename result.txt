@@ -1,0 +1,112 @@
+Week 2
+	Ben Stephen McDonald 
+	Joe William Parker 
+	Yoder Jared Owen 
+	Trevor Matt Jacob 
+	Ken Isaac Eli 
+	David Christian Trey 
+	Grayson Dutch Chuck 
+Week 3
+	David Christian Owen 
+	Jared Chuck McDonald 
+	Dutch Trey Grayson 
+	William Ben Jacob 
+	Trevor Stephen Matt 
+	Yoder Eli Joe 
+	Parker Isaac Ken 
+Week 4
+	Ken Parker William 
+	Joe Stephen Trey 
+	David Grayson Owen 
+	Ben Isaac McDonald 
+	Christian Jacob Trevor 
+	Dutch Matt Eli 
+	Yoder Jared Chuck 
+Week 5
+	Dutch Trey Parker 
+	Trevor Stephen Isaac 
+	Christian Ben Eli 
+	Chuck Owen Jacob 
+	Joe Jared William 
+	David Ken McDonald 
+	Grayson Matt Yoder 
+Week 6
+	Jared Dutch Owen 
+	McDonald Isaac Matt 
+	Yoder Christian Eli 
+	Joe Trey Jacob 
+	Chuck Parker William 
+	David Stephen Trevor 
+	Grayson Ben Ken 
+Week 7
+	Jared Isaac Eli 
+	Trevor Ken Matt 
+	David Chuck McDonald 
+	Yoder Trey Grayson 
+	William Stephen Jacob 
+	Christian Dutch Owen 
+	Ben Joe Parker 
+Week 8
+	Yoder Ben McDonald 
+	Trevor Chuck Isaac 
+	David Trey Joe 
+	Christian William Grayson 
+	Jared Owen Jacob 
+	Dutch Parker Eli 
+	Matt Stephen Ken 
+Week 9
+	Ben Trey Parker 
+	Joe Grayson McDonald 
+	Christian William Matt 
+	David Isaac Eli 
+	Yoder Stephen Owen 
+	Trevor Dutch Ken 
+	Jacob Jared Chuck 
+Week 10
+	Yoder William Christian 
+	Dutch Isaac Owen 
+	Grayson Parker Eli 
+	Trevor Chuck Matt 
+	Ken Ben Trey 
+	McDonald Stephen Jacob 
+	David Joe Jared 
+Week 11
+	Dutch Stephen McDonald 
+	Trevor Parker Matt 
+	Joe Owen Jacob 
+	Christian Trey Grayson 
+	Chuck Ben William 
+	Jared Ken Eli 
+	Yoder David Isaac 
+Week 12
+	Yoder Trey Isaac 
+	David Ken Eli 
+	Christian Owen Matt 
+	William Ben Stephen 
+	McDonald Dutch Parker 
+	Joe Jared Trevor 
+	Grayson Jacob Chuck 
+Week 13
+	Trevor Dutch Matt 
+	Ken Isaac Owen 
+	Chuck Jacob William 
+	Christian Stephen Eli 
+	Trey Grayson Parker 
+	Jared Ben McDonald 
+	Yoder David Joe 
+Week 14
+	Trevor Grayson Matt 
+	Chuck Ben McDonald 
+	Christian Dutch Eli 
+	Yoder David Trey 
+	Owen Isaac Jacob 
+	William Stephen Parker 
+	Joe Jared Ken 
+Week 15
+	David Owen Joe 
+	Jared Ben Trevor 
+	Ken Jacob Eli 
+	Chuck Trey Isaac 
+	Dutch Grayson McDonald 
+	Christian William Parker 
+	Matt Yoder Stephen 

@@ -38,16 +38,10 @@ def main():
 
     # Iterate through weeks
     for i in range(14):
-        print(i)
 
         # Fill the week
         week = fill_week(all_pairs)
-
-        # # If None is returned for the week, tried the copy of all pairs dataset
-        # if not (week):
-        #     weeks.append(fill_week(all_pairs_again))
-        # else:
-        #     weeks.append(week)
+        weeks.append(week)
 
     # Print the weeks
     print(weeks)
@@ -100,13 +94,23 @@ def fill_week(all_pairs: list) -> list:
     #         j += 1
 
     while len(this_week) != 6:
-        pair = random.choice(all_pairs)
-        table = [boi_in_week(x) for x in pair]
+        group = random.choice(all_pairs)
+        table = [not boi_in_week(this_week, x) for x in group]
+
+        # Check to ensure that none of the names are already in the week
+        if all(table):
+            this_week.append(group)
+            all_pairs.remove(group)
         
+    # Get the last grouping
+    group = boi_not_in_week(this_week, 3)
+    this_week.append(group)
+
+    print(this_week)
     
     return this_week
     
-def boi_not_in_week(week: list) -> str:
+def boi_not_in_week(week: list, num_bois: int = 1) -> str:
     """
     Find the boi that is not in the week, assuming only one
     :param week: pairings for a week
@@ -116,8 +120,11 @@ def boi_not_in_week(week: list) -> str:
     temp_bois = bois.copy()
     for pair in week:
         for boi in pair:
-            temp_bois.remove(boi)
-    return temp_bois[0]
+            try:
+                temp_bois.remove(boi)
+            except:
+                pass # boi in question is a little_boi, so not in temp_bois
+    return temp_bois[0:num_bois]
 
 def boi_in_week(week: list, boi: str) -> bool:
     """
