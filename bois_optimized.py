@@ -82,7 +82,10 @@ def verify_boi(boi: str, weeks: list):
                         met_with[b] = 1
     
     for key in met_with:
-        print(f"{boi} met with {key} {met_with[key]} times")
+        s = "s" if met_with[key] > 1 else ""
+        print(f"{boi} met with {key} {met_with[key]} time{s}")
+        if met_with[key] > 1:
+            print(f"\n\nPROBLEM: {boi} met with {key} more than once!\n\n")
 
 def all_bois_in_week(week: list) -> bool:
     """
