@@ -4,53 +4,85 @@ from copy import deepcopy
 
 bois = [
     "Grayson",
-    "Jacob",
     "Matt",
-    "Yoder",
-    "Ben",
-    "David",
-    "Stephen",
-    "Joe",
-    "Parker",
-    "Dutch",
-    "Jared",
     "Isaac",
-    "Chuck",
-    "Christian",
+    "Trevor",
+    "Dutch",
+    "Parker",
+    "Jared",
+    "Luke Y",
+    "Ben",
+    "Owen",
+    "Trey",
+    "Luke M",
     "Ken",
+    "Eli"
 ]
 
 little_bois = [
-    "Owen",
-    "Eli",
-    "Trey",
-    "Trevor",
-    "McDonald",
-    "William",
+    "5",
+    "Mustache",
+    "Herrell",
+    "Jonas",
+    "Tristan",
+    "Dakota",
 ]
 
+master_bois = bois + little_bois
+
+# 10 groups of 2 bois
 weeks = []
+numWeeks = 15
 
 def main():
     
     # Get all possible pairs (combination formula) of bois (15 choose 2)
     all_pairs = find_all_possible_pairs()
+    print(f"All possible pairs: {all_pairs}")
+    print(f"Number of possible pairs: {len(all_pairs)}")
 
-    # Iterate through weeks
-    for i in range(14):
+    all_pairs = list(all_pairs)
 
-        # Fill the week
-        week = fill_week(all_pairs)
-        weeks.append(week)
+    # Constraints
+    # 1. Every boi must be in a group
+    # 2. Every boi must be in a group with every other boi
+    # 3. Every boi cannot be in a group with another boi more than once across all weeks
 
-    # Print the weeks
-    print(weeks)
-    print(len(all_pairs))
+    for i in range(numWeeks):
+        print(f"Finding week {i+1}")
+        this_week = fill_week(all_pairs)
+        weeks.append(this_week)
+
     print_weeks(weeks)
 
-    # Ensure that each boi has a pairing each week
+    for boi in master_bois:
+        verify_boi(boi, weeks)
+
+def verify_boi(boi: str, weeks: list):
+    """
+    Verify that a boi is in every week
+    :param boi: name of boi
+    :param weeks: list of weeks
+    """
+
     for week in weeks:
-        print(all_bois_in_week(week))
+        if not boi_in_week(week, boi):
+            print(f"Boi {boi} not in week {weeks.index(week)+1}")
+
+    met_with = dict()
+    for week in weeks:
+        for pair in week:
+            if boi in pair:
+                for b in pair:
+                    if b == boi:
+                        continue
+                    if b in met_with:
+                        met_with[b] += 1
+                    else:
+                        met_with[b] = 1
+    
+    for key in met_with:
+        print(f"{boi} met with {key} {met_with[key]} times")
 
 def all_bois_in_week(week: list) -> bool:
     """
@@ -59,7 +91,7 @@ def all_bois_in_week(week: list) -> bool:
     :return: boolean specifying if every boi is in the group
     """
 
-    temp_bois = bois.copy()
+    temp_bois = master_bois.copy()
     for pair in week:
         for boi in pair:
             if boi in temp_bois:
@@ -74,37 +106,28 @@ def fill_week(all_pairs: list) -> list:
     """
 
     this_week = []
-    # while not week_is_full_minus_odd(this_week):
-    #     pair = random.choice(all_pairs)
-    #     boi1, boi2 = pair
-    #     while boi_in_week(this_week, boi1) or boi_in_week(this_week, boi2):
-    #         pair = random.choice(all_pairs)
-    #         boi1, boi2 = pair
-    #     this_week.append(pair)
-    #     all_pairs.remove(pair)
+    removed = []
+    tries = 0
 
-    # boi = boi_not_in_week(this_week)
-    # this_week[int(random.random() * len(this_week))].add(boi)
-
-    # random.shuffle(little_bois)
-    # j = 0
-    # for i in range(len(this_week)):
-    #     if len(this_week[i]) < 3:
-    #         this_week[i].add(little_bois[j])
-    #         j += 1
-
-    while len(this_week) != 6:
-        group = random.choice(all_pairs)
-        table = [not boi_in_week(this_week, x) for x in group]
+    while len(this_week) != 10:
+        pair = random.choice(all_pairs)
+        table = [not boi_in_week(this_week, x) for x in pair]
 
         # Check to ensure that none of the names are already in the week
         if all(table):
-            this_week.append(group)
-            all_pairs.remove(group)
-        
-    # Get the last grouping
-    group = boi_not_in_week(this_week, 3)
-    this_week.append(group)
+            this_week.append(pair)
+            all_pairs.remove(pair)
+            removed.append(pair)
+        else:
+            tries += 1
+
+        if tries > 100_000:
+            print(f"Popping off bois: {removed[-5:]}")
+            for i in range(5):
+                val = removed.pop()
+                this_week.remove(val)
+                all_pairs.append(val)
+            tries = 0
 
     print(this_week)
     
@@ -123,7 +146,7 @@ def boi_not_in_week(week: list, num_bois: int = 1) -> str:
             try:
                 temp_bois.remove(boi)
             except:
-                pass # boi in question is a little_boi, so not in temp_bois
+                pass 
     return temp_bois[0:num_bois]
 
 def boi_in_week(week: list, boi: str) -> bool:
@@ -163,7 +186,7 @@ def print_weeks(week: list):
     :param week: pairings for the week
     """
 
-    i = 2
+    i = 1
     with open("result.txt", "w") as f:
         for week in weeks:
             f.write(write_to_file(week, i-1))
@@ -177,74 +200,20 @@ def print_weeks(week: list):
                     print(f"\t{boi1}, {boi2}, {boi3}")
             i += 1
 
-def week_is_full_minus_odd(week: list) -> bool:
-    """
-    Ensure the week is full minus one boi
-    :param week: pairings for the week
-    :return: bool to determine if the week is full minus one
-    """
-
-    temp_bois = bois.copy()
-    for pair in week:
-        for boi in pair:
-            temp_bois.remove(boi)
-    if len(temp_bois) != 1:
-        return False
-    return True
-
-def hardcode_remove(all_pairs: list):
-    "Harcode remove week one"
-
-    all_pairs.remove({"Isaac", "David"})
-    all_pairs.remove({"Grayson", "Yoder"})
-    all_pairs.remove({"Jacob", "Christian"})
-    all_pairs.remove({"Ben", "Matt"})
-    all_pairs.remove({"Ken", "Stephen"})
-    all_pairs.remove({"Parker", "Jared"})
-    all_pairs.remove({"Dutch", "Chuck"})
-
-def one_little_two_big(temp_set: set):
-    """
-    Ensure that a possible pairing has two J bois and one pre j
-    """
-    temp_list = list(temp_set)
-
-    bois_count = 0
-    little_bois_count = 0
-    for boi in temp_list:
-        if boi in bois:
-            bois_count += 1
-        elif boi in little_bois:
-            little_bois_count += 1
-    
-    return bois_count == 2 and little_bois_count == 1
-
 def find_all_possible_pairs() -> list:
     """
-    Get all possible pairs of bois
+    Get all possible pairs of master bois
     :return: list of all possible pairs
     """
-    master_bois = bois + little_bois
 
     all_pairs = set()
     temp_set = set()
     for i in range(len(master_bois)):
-        for j in range(i, len(master_bois)):
-            for k in range(j, len(master_bois)):
-                temp_set = {master_bois[i], master_bois[j], master_bois[k]}
-                if len(temp_set) != 3:
-                    continue
-                elif not one_little_two_big(temp_set):
-                    continue
-                all_pairs.add(frozenset(temp_set))
-
-    all_pairs = list(all_pairs)
-    for i in range(len(all_pairs)):
-        all_pairs[i] = set(all_pairs[i])
-    
-    print(all_pairs)
-    # hardcode_remove(all_pairs)
-    print(len(all_pairs))
+        for j in range(len(master_bois)):
+            if (i == j):
+                continue
+            temp_set = {master_bois[i], master_bois[j]}
+            all_pairs.add(frozenset(temp_set))
 
     return all_pairs
 
