@@ -1,112 +1,165 @@
+Week 1
+	Luke Y Trey 
+	Dutch Tristan 
+	5 Owen 
+	Trevor Ken 
+	Mustache Herrell 
+	Jonas Eli 
+	Dakota Luke M 
+	Ben Isaac 
+	Grayson Parker 
+	Matt Jared 
 Week 2
-	Ben Stephen McDonald 
-	Joe William Parker 
-	Yoder Jared Owen 
-	Trevor Matt Jacob 
-	Ken Isaac Eli 
-	David Christian Trey 
-	Grayson Dutch Chuck 
+	Eli Jared 
+	Grayson Ken 
+	Jonas Trevor 
+	Herrell Owen 
+	Dakota Tristan 
+	Isaac Luke M 
+	Trey Matt 
+	Ben Luke Y 
+	Mustache 5 
+	Dutch Parker 
 Week 3
-	David Christian Owen 
-	Jared Chuck McDonald 
-	Dutch Trey Grayson 
-	William Ben Jacob 
-	Trevor Stephen Matt 
-	Yoder Eli Joe 
-	Parker Isaac Ken 
+	Luke M Jared 
+	Tristan Grayson 
+	Mustache Dutch 
+	Herrell Eli 
+	Ben Matt 
+	Trey Owen 
+	Dakota Ken 
+	Jonas Parker 
+	Isaac Luke Y 
+	5 Trevor 
 Week 4
-	Ken Parker William 
-	Joe Stephen Trey 
-	David Grayson Owen 
-	Ben Isaac McDonald 
-	Christian Jacob Trevor 
-	Dutch Matt Eli 
-	Yoder Jared Chuck 
+	Ken Luke M 
+	Tristan 5 
+	Ben Jonas 
+	Herrell Grayson 
+	Isaac Matt 
+	Dakota Trey 
+	Owen Parker 
+	Dutch Trevor 
+	Mustache Jared 
+	Luke Y Eli 
 Week 5
-	Dutch Trey Parker 
-	Trevor Stephen Isaac 
-	Christian Ben Eli 
-	Chuck Owen Jacob 
-	Joe Jared William 
-	David Ken McDonald 
-	Grayson Matt Yoder 
+	Eli Owen 
+	Ben 5 
+	Herrell Dakota 
+	Trevor Luke Y 
+	Dutch Jonas 
+	Ken Jared 
+	Isaac Parker 
+	Mustache Matt 
+	Grayson Luke M 
+	Tristan Trey 
 Week 6
-	Jared Dutch Owen 
-	McDonald Isaac Matt 
-	Yoder Christian Eli 
-	Joe Trey Jacob 
-	Chuck Parker William 
-	David Stephen Trevor 
-	Grayson Ben Ken 
+	Mustache Trevor 
+	Dakota 5 
+	Grayson Eli 
+	Isaac Jared 
+	Jonas Trey 
+	Tristan Parker 
+	Herrell Luke M 
+	Ben Owen 
+	Ken Matt 
+	Dutch Luke Y 
 Week 7
-	Jared Isaac Eli 
-	Trevor Ken Matt 
-	David Chuck McDonald 
-	Yoder Trey Grayson 
-	William Stephen Jacob 
-	Christian Dutch Owen 
-	Ben Joe Parker 
+	Tristan Jared 
+	Dakota Matt 
+	Isaac Owen 
+	Mustache Luke M 
+	Herrell Luke Y 
+	Dutch Ken 
+	5 Parker 
+	Ben Trey 
+	Trevor Eli 
+	Grayson Jonas 
 Week 8
-	Yoder Ben McDonald 
-	Trevor Chuck Isaac 
-	David Trey Joe 
-	Christian William Grayson 
-	Jared Owen Jacob 
-	Dutch Parker Eli 
-	Matt Stephen Ken 
+	5 Luke Y 
+	Ben Luke M 
+	Dakota Grayson 
+	Herrell Trey 
+	Isaac Tristan 
+	Mustache Jonas 
+	Ken Owen 
+	Trevor Jared 
+	Eli Parker 
+	Dutch Matt 
 Week 9
-	Ben Trey Parker 
-	Joe Grayson McDonald 
-	Christian William Matt 
-	David Isaac Eli 
-	Yoder Stephen Owen 
-	Trevor Dutch Ken 
-	Jacob Jared Chuck 
+	Matt Parker 
+	Isaac Trevor 
+	Ben Tristan 
+	5 Luke M 
+	Dakota Dutch 
+	Jonas Luke Y 
+	Mustache Owen 
+	Ken Eli 
+	Grayson Trey 
+	Herrell Jared 
 Week 10
-	Yoder William Christian 
-	Dutch Isaac Owen 
-	Grayson Parker Eli 
-	Trevor Chuck Matt 
-	Ken Ben Trey 
-	McDonald Stephen Jacob 
-	David Joe Jared 
+	Ken Trey 
+	Tristan Trevor 
+	Mustache Grayson 
+	Ben Dutch 
+	Dakota Luke Y 
+	Herrell Parker 
+	Matt Owen 
+	5 Jared 
+	Isaac Eli 
+	Jonas Luke M 
 Week 11
-	Dutch Stephen McDonald 
-	Trevor Parker Matt 
-	Joe Owen Jacob 
-	Christian Trey Grayson 
-	Chuck Ben William 
-	Jared Ken Eli 
-	Yoder David Isaac 
+	Trey Parker 
+	Herrell Isaac 
+	Tristan Owen 
+	Eli Matt 
+	Dutch Jared 
+	Ken Luke Y 
+	Mustache Dakota 
+	Trevor Luke M 
+	5 Jonas 
+	Ben Grayson 
 Week 12
-	Yoder Trey Isaac 
-	David Ken Eli 
-	Christian Owen Matt 
-	William Ben Stephen 
-	McDonald Dutch Parker 
-	Joe Jared Trevor 
-	Grayson Jacob Chuck 
+	Ben Eli 
+	Grayson Jared 
+	Dakota Owen 
+	Herrell Dutch 
+	Trevor Trey 
+	Tristan Jonas 
+	Isaac 5 
+	Luke Y Parker 
+	Mustache Ken 
+	Luke M Matt 
 Week 13
-	Trevor Dutch Matt 
-	Ken Isaac Owen 
-	Chuck Jacob William 
-	Christian Stephen Eli 
-	Trey Grayson Parker 
-	Jared Ben McDonald 
-	Yoder David Joe 
+	Ben Trevor 
+	Isaac Trey 
+	Dutch Grayson 
+	Herrell Matt 
+	Mustache Parker 
+	Tristan Eli 
+	Luke Y Luke M 
+	Jonas Owen 
+	Dakota Jared 
+	5 Ken 
 Week 14
-	Trevor Grayson Matt 
-	Chuck Ben McDonald 
-	Christian Dutch Eli 
-	Yoder David Trey 
-	Owen Isaac Jacob 
-	William Stephen Parker 
-	Joe Jared Ken 
+	Ben Parker 
+	Herrell Ken 
+	5 Trey 
+	Tristan Matt 
+	Grayson Trevor 
+	Dakota Eli 
+	Dutch Luke M 
+	Isaac Jonas 
+	Owen Jared 
+	Mustache Luke Y 
 Week 15
-	David Owen Joe 
-	Jared Ben Trevor 
-	Ken Jacob Eli 
-	Chuck Trey Isaac 
-	Dutch Grayson McDonald 
-	Christian William Parker 
-	Matt Yoder Stephen 
+	Mustache Trey 
+	Ben Dakota 
+	5 Grayson 
+	Tristan Ken 
+	Luke M Eli 
+	Trevor Owen 
+	Jared Parker 
+	Luke Y Matt 
+	Dutch Isaac 
+	Herrell Jonas 

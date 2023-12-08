@@ -1,0 +1,14 @@
+Ideas from Professor Koh:
+
+Model this problem as an undirected, unweighted graph with the nodes being each individual.
+One idea: have a 2D adjacency list as well as a list of all nonzero indices in this 2D 
+array. Then, we randomly pull from that array of indices to get a nonzero value.
+
+Maintain a current graph for this week and a graph for next week. 
+
+After we make a random choice, swap that choice with the last one in the array (move the picked 
+choice to the end) and then redefine the size of our array to be one less.
+
+For odd number: create one more "fake person" to make it even then solve it. After that, 
+reassign whoever is with the fake person to a group in which they have only seen at most 
+one of the people (not 2) in the group.
