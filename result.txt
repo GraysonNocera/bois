@@ -1,165 +1,165 @@
 Week 1
-	Luke Y Trey 
-	Dutch Tristan 
-	5 Owen 
-	Trevor Ken 
-	Mustache Herrell 
-	Jonas Eli 
-	Dakota Luke M 
-	Ben Isaac 
-	Grayson Parker 
-	Matt Jared 
+	Ken       Grayson   
+	5         Matt      
+	Isaac     Luke M    
+	Dutch     Trevor    
+	Jonas     Parker    
+	Luke Y    Jared     
+	Trey      Ben       
+	Eli       Owen      
+	Herrell   Mustache  
+	Dakota    Tristan   
 Week 2
-	Eli Jared 
-	Grayson Ken 
-	Jonas Trevor 
-	Herrell Owen 
-	Dakota Tristan 
-	Isaac Luke M 
-	Trey Matt 
-	Ben Luke Y 
-	Mustache 5 
-	Dutch Parker 
+	Grayson   Isaac     
+	Matt      Ken       
+	Tristan   Trevor    
+	Eli       Dutch     
+	Owen      Parker    
+	Trey      Jared     
+	Luke Y    Jonas     
+	Ben       Luke M    
+	Dakota    Herrell   
+	5         Mustache  
 Week 3
-	Luke M Jared 
-	Tristan Grayson 
-	Mustache Dutch 
-	Herrell Eli 
-	Ben Matt 
-	Trey Owen 
-	Dakota Ken 
-	Jonas Parker 
-	Isaac Luke Y 
-	5 Trevor 
+	Grayson   Dutch     
+	Trey      Matt      
+	Owen      Isaac     
+	Dakota    Trevor    
+	Tristan   Parker    
+	Luke Y    Ben       
+	Jared     Luke M    
+	Eli       Ken       
+	Jonas     Mustache  
+	5         Herrell   
 Week 4
-	Ken Luke M 
-	Tristan 5 
-	Ben Jonas 
-	Herrell Grayson 
-	Isaac Matt 
-	Dakota Trey 
-	Owen Parker 
-	Dutch Trevor 
-	Mustache Jared 
-	Luke Y Eli 
+	Herrell   Grayson   
+	5         Isaac     
+	Matt      Mustache  
+	Trevor    Luke M    
+	Dakota    Dutch     
+	Ken       Parker    
+	Trey      Owen      
+	Eli       Jared     
+	Luke Y    Tristan   
+	Ben       Jonas     
 Week 5
-	Eli Owen 
-	Ben 5 
-	Herrell Dakota 
-	Trevor Luke Y 
-	Dutch Jonas 
-	Ken Jared 
-	Isaac Parker 
-	Mustache Matt 
-	Grayson Luke M 
-	Tristan Trey 
+	Grayson   Luke M    
+	Isaac     Mustache  
+	Matt      Tristan   
+	5         Trevor    
+	Herrell   Dutch     
+	Jared     Parker    
+	Owen      Jonas     
+	Trey      Luke Y    
+	Eli       Ben       
+	Dakota    Ken       
 Week 6
-	Mustache Trevor 
-	Dakota 5 
-	Grayson Eli 
-	Isaac Jared 
-	Jonas Trey 
-	Tristan Parker 
-	Herrell Luke M 
-	Ben Owen 
-	Ken Matt 
-	Dutch Luke Y 
+	Matt      Trevor    
+	Eli       Grayson   
+	Owen      Dutch     
+	Herrell   Isaac     
+	Ken       Jared     
+	Dakota    Parker    
+	Trey      Luke M    
+	Luke Y    Mustache  
+	5         Ben       
+	Tristan   Jonas     
 Week 7
-	Tristan Jared 
-	Dakota Matt 
-	Isaac Owen 
-	Mustache Luke M 
-	Herrell Luke Y 
-	Dutch Ken 
-	5 Parker 
-	Ben Trey 
-	Trevor Eli 
-	Grayson Jonas 
+	Matt      Grayson   
+	Isaac     Trevor    
+	Herrell   Parker    
+	Jonas     Dutch     
+	Eli       Luke Y    
+	Owen      Luke M    
+	Ben       Jared     
+	Trey      Tristan   
+	Ken       Mustache  
+	5         Dakota    
 Week 8
-	5 Luke Y 
-	Ben Luke M 
-	Dakota Grayson 
-	Herrell Trey 
-	Isaac Tristan 
-	Mustache Jonas 
-	Ken Owen 
-	Trevor Jared 
-	Eli Parker 
-	Dutch Matt 
+	Ben       Grayson   
+	Tristan   Isaac     
+	Trevor    Parker    
+	Matt      Jared     
+	Dutch     Luke M    
+	Trey      Jonas     
+	Luke Y    Dakota    
+	Herrell   Owen      
+	Eli       Mustache  
+	5         Ken       
 Week 9
-	Matt Parker 
-	Isaac Trevor 
-	Ben Tristan 
-	5 Luke M 
-	Dakota Dutch 
-	Jonas Luke Y 
-	Mustache Owen 
-	Ken Eli 
-	Grayson Trey 
-	Herrell Jared 
+	Grayson   Mustache  
+	5         Dutch     
+	Herrell   Matt      
+	Owen      Trevor    
+	Isaac     Parker    
+	Luke Y    Ken       
+	Jonas     Jared     
+	Trey      Eli       
+	Tristan   Luke M    
+	Dakota    Ben       
 Week 10
-	Ken Trey 
-	Tristan Trevor 
-	Mustache Grayson 
-	Ben Dutch 
-	Dakota Luke Y 
-	Herrell Parker 
-	Matt Owen 
-	5 Jared 
-	Isaac Eli 
-	Jonas Luke M 
+	Dakota    Grayson   
+	Trevor    Mustache  
+	Dutch     Jared     
+	Owen      Matt      
+	Jonas     Isaac     
+	Eli       Parker    
+	Luke Y    Luke M    
+	Herrell   Ben       
+	Trey      Ken       
+	5         Tristan   
 Week 11
-	Trey Parker 
-	Herrell Isaac 
-	Tristan Owen 
-	Eli Matt 
-	Dutch Jared 
-	Ken Luke Y 
-	Mustache Dakota 
-	Trevor Luke M 
-	5 Jonas 
-	Ben Grayson 
+	Matt      Isaac     
+	Grayson   Parker    
+	5         Jared     
+	Luke Y    Owen      
+	Tristan   Dutch     
+	Ken       Trevor    
+	Ben       Mustache  
+	Jonas     Luke M    
+	Trey      Dakota    
+	Eli       Herrell   
 Week 12
-	Ben Eli 
-	Grayson Jared 
-	Dakota Owen 
-	Herrell Dutch 
-	Trevor Trey 
-	Tristan Jonas 
-	Isaac 5 
-	Luke Y Parker 
-	Mustache Ken 
-	Luke M Matt 
+	Ben       Matt      
+	Jonas     Grayson   
+	Trey      Isaac     
+	Trevor    Jared     
+	Dutch     Mustache  
+	Owen      Ken       
+	Dakota    Luke M    
+	Luke Y    Parker    
+	Herrell   Tristan   
+	Eli       5         
 Week 13
-	Ben Trevor 
-	Isaac Trey 
-	Dutch Grayson 
-	Herrell Matt 
-	Mustache Parker 
-	Tristan Eli 
-	Luke Y Luke M 
-	Jonas Owen 
-	Dakota Jared 
-	5 Ken 
+	Mustache  Parker    
+	Ken       Luke M    
+	Dakota    Matt      
+	Jonas     Trevor    
+	Herrell   Jared     
+	Owen      Grayson   
+	Ben       Isaac     
+	Trey      Dutch     
+	Eli       Tristan   
+	5         Luke Y    
 Week 14
-	Ben Parker 
-	Herrell Ken 
-	5 Trey 
-	Tristan Matt 
-	Grayson Trevor 
-	Dakota Eli 
-	Dutch Luke M 
-	Isaac Jonas 
-	Owen Jared 
-	Mustache Luke Y 
+	Matt      Dutch     
+	Tristan   Grayson   
+	Ken       Isaac     
+	Eli       Jonas     
+	Ben       Parker    
+	5         Owen      
+	Trey      Trevor    
+	Luke Y    Herrell   
+	Mustache  Luke M    
+	Dakota    Jared     
 Week 15
-	Mustache Trey 
-	Ben Dakota 
-	5 Grayson 
-	Tristan Ken 
-	Luke M Eli 
-	Trevor Owen 
-	Jared Parker 
-	Luke Y Matt 
-	Dutch Isaac 
-	Herrell Jonas 
+	Matt      Parker    
+	Luke Y    Dutch     
+	Grayson   Trevor    
+	Owen      Mustache  
+	5         Jonas     
+	Dakota    Isaac     
+	Ben       Ken       
+	Eli       Luke M    
+	Trey      Herrell   
+	Tristan   Jared     
