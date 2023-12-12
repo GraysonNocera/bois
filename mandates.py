@@ -1,11 +1,9 @@
 import random
-import time
 from copy import deepcopy
 from Boi import Boi
-import os
 import sys
 
-def main(bois_file: str, num_weeks_file: str) -> list[list[set]]:
+def main(bois_file: str = "inputs/bois.txt", num_weeks_file: str = "inputs/num_weeks.txt", output_file: str = "result.txt") -> list[list[set]]:
 
     weeks = []
 
@@ -28,7 +26,7 @@ def main(bois_file: str, num_weeks_file: str) -> list[list[set]]:
     print(f"Bois with numbers: {bois_with_numbers}")
     weeks = transform_weeks(weeks, bois_with_numbers)
 
-    print_weeks(weeks)
+    print_weeks(weeks, output_file)
 
     for boi in bois:
         verify_boi(boi, weeks)
@@ -65,9 +63,6 @@ def fill_week(graph: [Boi], num_bois: int) -> list[set]:
     :return: pairings for the week
     """
 
-    print(f"Printing week, current graph:")
-    print_graph(graph, num_bois)
-
     week = []
     choices = [i for i in range(num_bois)]
     week_graph: [Boi] = deepcopy(graph)
@@ -76,8 +71,7 @@ def fill_week(graph: [Boi], num_bois: int) -> list[set]:
         random_boi = week_graph[random.choice(choices)].index
 
         print(f"random boi: {random_boi}. Options: {week_graph[random_boi].options}")
-        second_boi = 0
-        i = 0
+        second_boi, i = 0, 0
         while second_boi < num_bois and i == 0:
             i = week_graph[random_boi].options[second_boi]
             second_boi += 1
@@ -112,7 +106,6 @@ def fill_week(graph: [Boi], num_bois: int) -> list[set]:
 
     return week
     
-
 def construct_graph(bois, num_bois) -> list[Boi]:
     """
     Construct a graph of bois and their mandates
@@ -248,7 +241,7 @@ def boi_in_week(week: list, boi: str) -> bool:
 
     return False
 
-def write_to_file(week: list, i: int = 1):
+def write_to_file(week: list, i: int = 0):
     """
     Write the output of the algorithm to a file
     :param week: pairings for the week
@@ -260,28 +253,23 @@ def write_to_file(week: list, i: int = 1):
     for pair in week:
         output += "\t"
         for b in pair:
-            output += f"{b} "
+            output += f"{b:10}"
         output += "\n"
     return output
 
-def print_weeks(weeks: list):
+def print_weeks(weeks: list, output_file: str):
     """
     Print the weeks all pretty
     :param week: pairings for the week
+    :param output_file: filepath to output file
     """
 
-    i = 1
-    with open("result.txt", "w") as f:
+    i = 0
+    with open(output_file, "w") as f:
         for week in weeks:
-            f.write(write_to_file(week, i-1))
-            print(f"Week {i}")
+            f.write(write_to_file(week, i))
             for pair in week:
-                if (len(pair) == 2):
-                    boi1, boi2 = pair
-                    print(f"\t{boi1}, {boi2}")
-                elif (len(pair) == 3):
-                    boi1, boi2, boi3 = pair
-                    print(f"\t{boi1}, {boi2}, {boi3}")
+                boi1, boi2 = pair
             i += 1
 
 def find_all_possible_pairs(bois) -> list:
@@ -303,11 +291,10 @@ def find_all_possible_pairs(bois) -> list:
     return all_pairs
 
 if __name__ == "__main__":
-    if len(sys.argv) == 3:
+    if len(sys.argv) == 4:
         bois_file = sys.argv[1]
         num_weeks_file = sys.argv[2]
+        output_file = sys.argv[3]
+        main(bois_file, num_weeks_file, output_file)
     else:
-        bois_file = os.path.join("inputs", "bois.txt")
-        num_weeks_file = os.path.join("inputs", "num_weeks.txt")
-
-    main(bois_file, num_weeks_file)
+        main()
