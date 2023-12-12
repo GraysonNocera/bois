@@ -22,6 +22,9 @@ def main(bois_file: str = "inputs/bois.txt", num_weeks_file: str = "inputs/num_w
         week = fill_week(graph, num_bois)
         weeks.append(week)
 
+        if empty(graph, num_bois):
+            graph = construct_graph(bois, num_bois)
+
     bois_with_numbers = {i:x for i,x in enumerate(bois)}
     print(f"Bois with numbers: {bois_with_numbers}")
     weeks = transform_weeks(weeks, bois_with_numbers)
@@ -70,7 +73,7 @@ def fill_week(graph: [Boi], num_bois: int) -> list[set]:
     while choices:
         random_boi = week_graph[random.choice(choices)].index
 
-        print(f"random boi: {random_boi}. Options: {week_graph[random_boi].options}")
+        # print(f"random boi: {random_boi}. Options: {week_graph[random_boi].options}")
         second_boi, i = 0, 0
         while second_boi < num_bois and i == 0:
             i = week_graph[random_boi].options[second_boi]
@@ -78,10 +81,6 @@ def fill_week(graph: [Boi], num_bois: int) -> list[set]:
         second_boi -= 1
 
         if i == 0:
-            if not any(graph):
-                print("No more possible matchings")
-                return week
-
             week_graph: [Boi] = deepcopy(graph)
 
             while week:
@@ -90,6 +89,7 @@ def fill_week(graph: [Boi], num_bois: int) -> list[set]:
                 graph[boi2].options[boi1] = 1
 
             choices = [i for i in range(num_bois)]
+            print_graph(graph, num_bois)
             continue
         
         week.append({ random_boi, second_boi })
@@ -105,7 +105,14 @@ def fill_week(graph: [Boi], num_bois: int) -> list[set]:
         graph[second_boi].options[random_boi] = 0
 
     return week
-    
+
+def empty(graph: list[Boi], num_bois: int) -> bool:
+    empty_num = 0
+    for row in graph:
+        empty_num = empty_num + 1 if (not any(row.options)) else empty_num
+
+    return empty_num == num_bois
+ 
 def construct_graph(bois, num_bois) -> list[Boi]:
     """
     Construct a graph of bois and their mandates
