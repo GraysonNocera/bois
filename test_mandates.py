@@ -51,6 +51,16 @@ class TestMandates:
             for key in met_with:
                 assert met_with[key] == 1
 
+    def test_each_boi_every_week(self, weeks: list[list[set]], bois: list[str]):
+        for boi in bois:
+            for week in weeks:
+                found = False
+                for pair in week:
+                    if boi in pair:
+                        found = True
+                        break
+                assert found
+
     @pytest.mark.parametrize(
         argnames="weeks, bois_with_numbers, expected",
         argvalues=[
