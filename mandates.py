@@ -35,7 +35,7 @@ def main(bois_file: str = "inputs/bois.txt", num_weeks_file: str = "inputs/num_w
 
     return weeks
 
-def transform_weeks(weeks: list, bois_with_numbers: dict) -> list:
+def transform_weeks(weeks: list[list[set]], bois_with_numbers: {int:str}) -> list:
     """
     Transform the weeks from a list of numbers to a list of bois
     :param weeks: list of weeks
