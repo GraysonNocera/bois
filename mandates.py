@@ -1,62 +1,177 @@
 import random
 import time
 from copy import deepcopy
+from Boi import Boi
+import os
+import sys
 
-bois = [
-    "Grayson",
-    "Matt",
-    "Isaac",
-    "Trevor",
-    "Dutch",
-    "Parker",
-    "Jared",
-    "Luke Y",
-    "Ben",
-    "Owen",
-    "Trey",
-    "Luke M",
-    "Ken",
-    "Eli"
-]
+def main(bois_file: str, num_weeks_file: str) -> list[list[set]]:
 
-little_bois = [
-    "5",
-    "Mustache",
-    "Herrell",
-    "Jonas",
-    "Tristan",
-    "Dakota",
-]
+    weeks = []
 
-master_bois = bois + little_bois
+    bois = read_names(bois_file)
+    num_bois = len(bois)
+    print(f"Bois: {bois} with length {len(bois)}")
 
-# 10 groups of 2 bois
-weeks = []
-numWeeks = 15
+    num_weeks = read_weeks(num_weeks_file)
+    print(f"Weeks: {num_weeks}")
 
-def main():
-    
-    # Get all possible pairs (combination formula) of bois (15 choose 2)
-    all_pairs = find_all_possible_pairs()
-    print(f"All possible pairs: {all_pairs}")
-    print(f"Number of possible pairs: {len(all_pairs)}")
+    graph = construct_graph(bois, num_bois)
+    print_graph(graph, num_bois)
 
-    all_pairs = list(all_pairs)
-
-    # Constraints
-    # 1. Every boi must be in a group
-    # 2. Every boi must be in a group with every other boi
-    # 3. Every boi cannot be in a group with another boi more than once across all weeks
-
-    for i in range(numWeeks):
+    for i in range(num_weeks):
         print(f"Finding week {i+1}")
-        this_week = fill_week(all_pairs)
-        weeks.append(this_week)
+        week = fill_week(graph, num_bois)
+        weeks.append(week)
+
+    bois_with_numbers = {i:x for i,x in enumerate(bois)}
+    print(f"Bois with numbers: {bois_with_numbers}")
+    weeks = transform_weeks(weeks, bois_with_numbers)
 
     print_weeks(weeks)
 
-    for boi in master_bois:
+    for boi in bois:
         verify_boi(boi, weeks)
+
+    print_graph(graph, num_bois)
+
+    return weeks
+
+def transform_weeks(weeks: list, bois_with_numbers: dict) -> list:
+    """
+    Transform the weeks from a list of numbers to a list of bois
+    :param weeks: list of weeks
+    :param bois_with_numbers: dictionary of bois with numbers
+    :return: list of weeks with bois
+    """
+
+    transformed_weeks = []
+    for week in weeks:
+        transformed_week = []
+        for pair in week:
+            transformed_pair = []
+            for boi in pair:
+                transformed_pair.append(bois_with_numbers[boi])
+            transformed_week.append(set(transformed_pair))
+        transformed_weeks.append(transformed_week)
+
+    return transformed_weeks
+
+def fill_week(graph: [Boi], num_bois: int) -> list[set]:
+    """
+    Fill a week with pairings
+    :param graph: graph of bois and their mandates
+    :param num_bois: number of bois
+    :return: pairings for the week
+    """
+
+    print(f"Printing week, current graph:")
+    print_graph(graph, num_bois)
+
+    week = []
+    choices = [i for i in range(num_bois)]
+    week_graph: [Boi] = deepcopy(graph)
+
+    while choices:
+        random_boi = week_graph[random.choice(choices)].index
+
+        print(f"random boi: {random_boi}. Options: {week_graph[random_boi].options}")
+        second_boi = 0
+        i = 0
+        while second_boi < num_bois and i == 0:
+            i = week_graph[random_boi].options[second_boi]
+            second_boi += 1
+        second_boi -= 1
+
+        if i == 0:
+            if not any(graph):
+                print("No more possible matchings")
+                return week
+
+            week_graph: [Boi] = deepcopy(graph)
+
+            while week:
+                boi1, boi2 = week.pop()
+                graph[boi1].options[boi2] = 1
+                graph[boi2].options[boi1] = 1
+
+            choices = [i for i in range(num_bois)]
+            continue
+        
+        week.append({ random_boi, second_boi })
+
+        # At this point, neither of these bois can be chosen again in this week
+        choices.remove(random_boi)
+        choices.remove(second_boi)
+        for row in week_graph:
+            row.options[random_boi] = 0
+            row.options[second_boi] = 0
+
+        graph[random_boi].options[second_boi] = 0
+        graph[second_boi].options[random_boi] = 0
+
+    return week
+    
+
+def construct_graph(bois, num_bois) -> list[Boi]:
+    """
+    Construct a graph of bois and their mandates
+    :param bois: list of bois
+    :param num_bois: number of bois
+    :return: graph of bois
+    """
+
+    graph = [[1 for i in range(num_bois)] for j in range(num_bois)]
+
+    for i in range(num_bois):
+        graph[i][i] = 0
+
+    for i in range(num_bois):
+        graph[i] = Boi(bois[i], i, graph[i])
+
+    return graph
+
+def read_names(bois_file: str) -> list:
+    """
+    Read the names from the file
+    :param bois_file: filepath to list of bois
+    :return: list of bois
+    """
+
+    bois = []
+    with open(bois_file, "r") as f:
+        bois = [line.strip() for line in f.readlines()]
+
+    return bois
+
+def read_weeks(num_weeks_file: str) -> int:
+    """
+    Read the number of weeks from the file
+    :param num_weeks_file: filepath to number of weeks
+    :return: number of weeks
+    """
+
+    weeks = 0
+    with open(num_weeks_file, "r") as f:
+        try:
+            weeks = int(f.readline().strip())
+        except:
+            print("Could not read number of weeks from file")
+            exit(1)
+
+    return weeks
+
+def print_graph(graph: list[Boi], num_bois: int):
+    """
+    Print the graph
+    :param graph: graph of bois
+    :param num_bois: number of bois
+    """
+
+    print("\nGraph:")
+    for i in range(num_bois):
+        print(f"{graph[i].name:10} {graph[i].options}")
+    print()
 
 def verify_boi(boi: str, weeks: list):
     """
@@ -68,6 +183,7 @@ def verify_boi(boi: str, weeks: list):
     for week in weeks:
         if not boi_in_week(week, boi):
             print(f"Boi {boi} not in week {weeks.index(week)+1}")
+            return
 
     met_with = dict()
     for week in weeks:
@@ -87,56 +203,21 @@ def verify_boi(boi: str, weeks: list):
         if met_with[key] > 1:
             print(f"\n\nPROBLEM: {boi} met with {key} more than once!\n\n")
 
-def all_bois_in_week(week: list) -> bool:
+def all_bois_in_week(bois: list, week: list) -> bool:
     """
     Ensure that every boi is in a group for a given week
     :param week: pairings for the week
     :return: boolean specifying if every boi is in the group
     """
 
-    temp_bois = master_bois.copy()
+    temp_bois = bois.copy()
     for pair in week:
         for boi in pair:
             if boi in temp_bois:
                 temp_bois.remove(boi)
     return len(temp_bois) == 0
-
-def fill_week(all_pairs: list) -> list:
-    """
-    Fill a week with pairings
-    :param all_pairs: master dataset with every possible combination of bois
-    :return: pairings for the week, or None if timeout occurs
-    """
-
-    this_week = []
-    removed = []
-    tries = 0
-
-    while len(this_week) != 10:
-        pair = random.choice(all_pairs)
-        table = [not boi_in_week(this_week, x) for x in pair]
-
-        # Check to ensure that none of the names are already in the week
-        if all(table):
-            this_week.append(pair)
-            all_pairs.remove(pair)
-            removed.append(pair)
-        else:
-            tries += 1
-
-        if tries > 100_000:
-            print(f"Popping off bois: {removed[-5:]}")
-            for i in range(5):
-                val = removed.pop()
-                this_week.remove(val)
-                all_pairs.append(val)
-            tries = 0
-
-    print(this_week)
     
-    return this_week
-    
-def boi_not_in_week(week: list, num_bois: int = 1) -> str:
+def boi_not_in_week(bois: list, week: list, num_bois: int = 1) -> str:
     """
     Find the boi that is not in the week, assuming only one
     :param week: pairings for a week
@@ -183,7 +264,7 @@ def write_to_file(week: list, i: int = 1):
         output += "\n"
     return output
 
-def print_weeks(week: list):
+def print_weeks(weeks: list):
     """
     Print the weeks all pretty
     :param week: pairings for the week
@@ -203,21 +284,30 @@ def print_weeks(week: list):
                     print(f"\t{boi1}, {boi2}, {boi3}")
             i += 1
 
-def find_all_possible_pairs() -> list:
+def find_all_possible_pairs(bois) -> list:
     """
     Get all possible pairs of master bois
+    :param bois: master list of bois
     :return: list of all possible pairs
     """
 
     all_pairs = set()
     temp_set = set()
-    for i in range(len(master_bois)):
-        for j in range(len(master_bois)):
+    for i in range(len(bois)):
+        for j in range(len(bois)):
             if (i == j):
                 continue
-            temp_set = {master_bois[i], master_bois[j]}
+            temp_set = {bois[i], bois[j]}
             all_pairs.add(frozenset(temp_set))
 
     return all_pairs
 
-main()
+if __name__ == "__main__":
+    if len(sys.argv) == 3:
+        bois_file = sys.argv[1]
+        num_weeks_file = sys.argv[2]
+    else:
+        bois_file = os.path.join("inputs", "bois.txt")
+        num_weeks_file = os.path.join("inputs", "num_weeks.txt")
+
+    main(bois_file, num_weeks_file)
